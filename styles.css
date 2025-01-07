@@ -1,0 +1,364 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #f4f1ea;
+}
+
+header {
+  background-color: #f4f1ea;
+  padding: 1rem;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 2.5rem; /* Adjusts font size */
+  color: darkslategray; /* Sets the text color */
+  margin: 2rem 0 2rem 0; /* Adds 2rem of space below the h1 */
+  text-transform: uppercase; /* Makes text uppercase */
+  cursor: pointer;
+}
+
+nav {
+  margin-top: 1rem;
+}
+
+.nav-link {
+  text-decoration: none;
+  font-size: 1.3rem;
+  color: darkslategray;
+  margin: 0 2rem;
+  padding: 1rem;
+}
+
+.nav-link.active-link {
+  text-decoration: underline;
+}
+
+.nav-link:hover {
+  color: #666;
+}
+
+.section {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  min-height: calc(100vh - 150px);
+}
+
+.section.active {
+  display: block;
+  margin: 0;
+}
+
+.welcome-container {
+  display: flex;
+  justify-content: center; /* Ensures the container content is horizontally centered */
+  align-items: center; /* Ensures the container content is vertically centered */
+  position: relative; /* Creates a positioning context for child elements */
+  height: 100%;
+}
+
+.gif-container {
+  display: flex; /* Enable Flexbox for centering */
+  justify-content: center; /* Centers the GIF horizontally */
+  align-items: center; /* Centers the GIF vertically */
+  width: 100%;
+  max-width: 500px;
+  aspect-ratio: 1/1;
+  margin: 2rem auto; /* Centers the container horizontally and adds top spacing */
+  position: relative;
+  overflow: hidden; /* Ensures content stays within the container */
+  border-radius: 4px;
+}
+
+.gif-image {
+  width: 100%; /* Ensures the GIF fills the container height */
+  object-fit: contain; /* Maintains the aspect ratio without cropping */
+  transition: opacity 0.3s ease; /* Smooth transition effect */
+  pointer-events: auto; /* Ensures hover events are triggered */
+  cursor: pointer;
+}
+
+.gif-image:hover {
+  opacity: 0.5; /* Makes the GIF look dimmed */
+}
+
+.gif-container:hover .gif-image {
+  opacity: 0.5; /* Keeps the GIF dimmed when hovering over the container or h2 */
+}
+
+/* Keyframes for the fade-in effect */
+@keyframes fadeIn {
+  from {
+    opacity: 0; /* Fully transparent */
+  }
+  to {
+    opacity: 1; /* Fully visible */
+  }
+}
+
+/* Welcome text styling with animation */
+.welcome-container h2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3rem;
+  color: darkslategray;
+  text-align: center;
+  z-index: 1;
+  font-family: "Verdana", "Geneva", sans-serif;
+  cursor: pointer;
+
+  /* Animation */
+  opacity: 0; /* Start fully transparent */
+  animation: fadeIn 2s ease-in-out forwards; /* 3-second fade-in */
+}
+
+.content-box {
+  position: relative;
+  width: 500px;
+  height: 500px;
+  margin: 0 auto;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  justify-content: center;
+}
+
+.content-inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  height: 100%;
+  width: 100%;
+}
+
+.profile-photo {
+  display: flex;
+  justify-content: center; /* Horizontally center the image */
+  align-items: center; /* Vertically center the image */
+  margin-bottom: 1rem; /* Space below the image */
+  height: 100px; /* Ensure there's enough height for centering */
+  width: 100%; /* Make it span the full container width */
+}
+
+.profile-image {
+  width: 80px;
+  height: 80px;
+  object-fit: cover; /* Ensures the image keeps its aspect ratio */
+  border-radius: 4px; /* Optional rounded edges */
+  margin: 0; /* Remove unnecessary margins */
+}
+
+.about-text {
+  flex: 1;
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333;
+  margin-left: 1rem; /* Adds space to the left */
+  margin-right: 1rem; /* Adds space to the right */
+}
+
+.about-text p {
+  margin-bottom: 1.5rem; /* Adjust this value to control the spacing */
+  font-size: 1rem;
+}
+
+.about-text h1 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: darkslategray;
+}
+
+.about-text a {
+  color: #0073e6;
+  text-decoration: none;
+}
+
+.about-text a:hover {
+  text-decoration: underline;
+}
+
+.nav-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #c8cfe6;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.nav-arrow:hover {
+  background-color: #555;
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+  .nav-arrow {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+}
+
+.nav-arrow.left {
+  left: -60px;
+}
+
+.nav-arrow.right {
+  right: -60px;
+}
+
+.gallery {
+  display: grid; /* Use Grid for layout */
+  gap: 10px; /* Space between items */
+  width: fit-content; /* Adjust width to the content */
+  padding: 1rem; /* Optional padding around the gallery */
+  align-self: center;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  grid-template-rows: repeat(3, 1fr); /* 3 rows */
+  gap: 10px; /* Small padding between the grid items */
+  justify-items: center; /* Center items horizontally within each grid cell */
+  align-items: center; /* Center items vertically within each grid cell */
+}
+
+.grid-item {
+  width: 130px; /* Set a fixed width for each square */
+  height: 130px; /* Set a fixed height for each square */
+  overflow: hidden; /* Ensures images don't overflow their container */
+}
+
+.grid-item img {
+  width: 100%; /* Make the image fill the width of the container */
+  height: 100%; /* Make the image fill the height of the container */
+  object-fit: cover; /* Ensures images are cropped to fit the square dimensions */
+  border-radius: 4px; /* Optional: Adds a small rounding to corners */
+}
+
+.linkedin-link {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 1rem;
+  text-decoration: none;
+  color: #0073b1; /* LinkedIn's official blue color */
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.linkedin-link:hover {
+  text-decoration: underline;
+}
+
+.linkedin-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 0.5rem; /* Adds space between icon and text */
+}
+
+.experience-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.experience-left {
+  flex: 1;
+  text-align: center;
+  padding-right: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.experience-left p {
+  margin: 5px 0;
+  font-size: 13px;
+  color: #333;
+}
+
+.experience-right {
+  flex: 3;
+  border-left: 1px solid #ddd;
+  padding-left: 20px;
+}
+
+.experience-right h3 {
+  margin: 0;
+  font-size: 12px;
+  font-weight: bold;
+  color: #333;
+}
+
+.experience-right p {
+  margin: 10px 0 0;
+  font-size: 10px;
+  color: #666;
+}
+
+.education-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.education-left {
+  flex: 1;
+  text-align: center;
+  padding-right: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.education-left p {
+  margin: 5px 0;
+  font-size: 13px;
+  color: #333;
+}
+
+.education-right {
+  flex: 3;
+  border-left: 1px solid #ddd;
+  padding-left: 20px;
+}
+
+.education-right h3 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: bold;
+  color: #333;
+}
+
+.education-right p {
+  margin: 10px 0 0;
+  font-size: 10px;
+  color: #666;
+}
